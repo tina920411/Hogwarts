@@ -1,0 +1,73 @@
+datas:
+- user_name: 汤圆
+  English_name: TY
+  id: '001'
+  gender_status: man
+  tel: 15701234567
+  email: 843377629@qq.com
+  dutity: 软件工程师
+  status: manager
+- user_name: 汤圆
+  English_name: TY
+  id:
+  gender_status: man
+  tel: 15701234567
+  email: 843377629@qq.com
+  dutity: 软件工程师
+  status: manager
+- user_name: 汤圆
+  English_name: TY
+  id: '010'
+  gender_status: man
+  tel:
+  email:
+  dutity: 软件工程师
+  status: manager
+- user_name: 汤圆
+  English_name: TY
+  id: '010'
+  gender_status: man
+  tel: 13922223333
+  email: 843377629@qq.com
+  dutity: 软件工程师
+  status: manager
+- user_name: 汤圆
+  English_name: TY
+  id: '010'
+  gender_status: man
+  tel: 139222233334
+  email: 843377629@qq.com
+  dutity: 软件工程师
+  status: manager
+- user_name: 汤圆
+  English_name: TY
+  id: '010'
+  gender_status: man
+  tel: 13922223333
+  email: @qq.com
+  dutity: 软件工程师
+  status: manager
+- user_name: 汤圆
+  English_name: TY
+  id: '010'
+  gender_status: man
+  tel: 13922223333
+  email: 843377627@qq.com
+  dutity: 软件工程师
+  status: manager
+expects:
+- "帐号重复"
+- "帐号未填写"
+- "手机和邮箱都没填写"
+- "手机号已被占用"
+- "手机号填写不正确"
+- "邮箱地址填写不正确"
+- "邮箱已被占用"
+ids:
+- "add_fail_first"
+- "add_fail_second"
+- "add_fail_third"
+- "add_fail_fourth"
+- "add_fail_fifty"
+- "add_fail_sixty"
+- "add_fail_seventy"

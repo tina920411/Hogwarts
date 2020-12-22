@@ -1,0 +1,32 @@
+datas:
+- user_name: 小徐
+  English_name: XJJ
+  id: '001'
+  gender_status: man
+  tel: 15705186626
+  email: 843377623@qq.com
+  dutity: 软件工程师
+  status: manager
+  invitation_method: no
+- user_name: 小黄
+  English_name: HTT
+  id: '002'
+  gender_status: female
+  tel: 13911111111
+  email: 843377624@qq.com
+  dutity: 测试工程师
+  status: common
+  invitation_method: no
+- user_name: 小小徐
+  English_name: XSM
+  id: '003'
+  gender_status: female
+  tel: 13422222222
+  email: 843377625@qq.com
+  dutity: 气氛担当
+  status: common
+  invitation_method: no
+ids:
+- "add_first"
+- "add_second"
+- "add_third"
