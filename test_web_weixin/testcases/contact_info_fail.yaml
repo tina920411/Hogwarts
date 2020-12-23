@@ -1,68 +1,39 @@
 datas:
-- user_name: 汤圆
-  English_name: TY
+- user_name: 小徐
   id: '001'
-  gender_status: man
   tel: 15701234567
   email: 843377629@qq.com
-  dutity: 软件工程师
-  status: manager
-- user_name: 汤圆
-  English_name: TY
-  id:
-  gender_status: man
+  expect_res: "该帐号已被“小徐”占有"
+- user_name: 小徐3
+  id: ""
   tel: 15701234567
   email: 843377629@qq.com
-  dutity: 软件工程师
-  status: manager
-- user_name: 汤圆
-  English_name: TY
+  expect_res: "请填写帐号"
+- user_name: 小徐3
   id: '010'
-  gender_status: man
-  tel:
-  email:
-  dutity: 软件工程师
-  status: manager
-- user_name: 汤圆
-  English_name: TY
+  tel:  ""
+  email: ""
+  expect_res: "手机和邮箱不能同时为空"
+- user_name: 小徐3
   id: '010'
-  gender_status: man
-  tel: 13922223333
+  tel: 15705186626
   email: 843377629@qq.com
-  dutity: 软件工程师
-  status: manager
-- user_name: 汤圆
-  English_name: TY
+  expect_res: "该手机已被“小徐”占有"
+- user_name: 小徐3
   id: '010'
-  gender_status: man
   tel: 139222233334
   email: 843377629@qq.com
-  dutity: 软件工程师
-  status: manager
-- user_name: 汤圆
-  English_name: TY
+  expect_res: "请填写正确的手机号码"
+- user_name: 小徐3
   id: '010'
-  gender_status: man
-  tel: 13922223333
-  email: @qq.com
-  dutity: 软件工程师
-  status: manager
-- user_name: 汤圆
-  English_name: TY
+  tel: 13922224444
+  email: 11@qq.com
+  expect_res: "请填写正确的邮箱地址"
+- user_name: 小徐3
   id: '010'
-  gender_status: man
-  tel: 13922223333
-  email: 843377627@qq.com
-  dutity: 软件工程师
-  status: manager
-expects:
-- "帐号重复"
-- "帐号未填写"
-- "手机和邮箱都没填写"
-- "手机号已被占用"
-- "手机号填写不正确"
-- "邮箱地址填写不正确"
-- "邮箱已被占用"
+  tel: 13922225555
+  email: 843377623@qq.com
+  expect_res: "该邮箱已被“小徐”占有"
 ids:
 - "add_fail_first"
 - "add_fail_second"

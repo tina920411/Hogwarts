@@ -2,30 +2,30 @@ datas:
 - user_name: 小徐2
   English_name: XJJ2
   id: '004'
-  gender_status: man
+  gender: man
   tel: 15700001111
   email: 843377626@qq.com
   dutity: 软件工程师
   status: common
-  invitation_method: no
+  invitation_method: "no"
 - user_name: 小黄2
   English_name: HTT2
   id: '005'
-  gender_status: female
+  gender: female
   tel: 13922223333
   email: 843377627@qq.com
   dutity: 测试工程师
   status: common
-  invitation_method: no
+  invitation_method: "no"
 - user_name: 小小徐2
   English_name: XSM2
   id: '006'
-  gender_status: female
+  gender: female
   tel: 13455554444
   email: 843377628@qq.com
   dutity: 气氛担当
   status: common
-  invitation_method: no
+  invitation_method: "no"
 ids:
 - "add_fourth"
 - "add_fifty"

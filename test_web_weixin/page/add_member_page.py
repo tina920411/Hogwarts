@@ -15,34 +15,36 @@ from page.contact_page import ContactPage
 class AddMember(BasePage):
 
 
-    def add_member(self, **dict):
+    def add_member(self, dict):
         """
         添加成员操作
         :return: 返回到ContactPage()
         """
 
         if dict['gender'].lower() in ['man','male','boy']:
-            gender = 1
+            gender_index = 1
         else:
-            gender = 2
+            gender_index = 2
         if dict['status'].lower() in ['common','ordinary']:
             status = 0
         else:
             status = 1
-        self.driver.find_element(By.ID, "username").send_keys(dict['name'])
-        self.driver.find_element(By.ID, "memberAdd_english_name").send_keys(dict['english_name'])
+        self.driver.find_element(By.ID, "username").send_keys(dict['user_name'])
+        self.driver.find_element(By.ID, "memberAdd_english_name").send_keys(dict['English_name'])
         self.driver.find_element(By.ID, "memberAdd_acctid").send_keys(dict['id'])
-        gender_web = self.driver.find_element(By.CSS_SELECTOR, "[name='gender']")
+        gender_web = self.driver.find_elements_by_name("gender")
+        print("gender is: %s" % gender_web)
         for index in gender_web:
-            if index.get_attribute('value') == gender:
+            if int(index.get_attribute('value')) == int(gender_index):
+                print("gender is %s" % index.get_attribute('value'))
                 index.click()
         sleep(1)
         self.driver.find_element(By.ID, "memberAdd_phone").send_keys(dict['tel'])
         self.driver.find_element(By.ID, "memberAdd_mail").send_keys(dict['email'])
         self.driver.find_element(By.ID, "memberAdd_title").send_keys(dict['dutity'])
-        status_web = self.driver.find_element(By.CSS_SELECTOR, "[name='identity_stat']")
+        status_web = self.driver.find_elements_by_name("identity_stat")
         for index in status_web:
-            if index.get_attribute('value') == status:
+            if int(index.get_attribute('value')) == int(status):
                 index.click()
         sleep(1)
         invit_web = self.driver.find_element(By.CSS_SELECTOR, "[name='sendInvite']")
@@ -58,11 +60,12 @@ class AddMember(BasePage):
 
 
 
-    def add_member_fail(self, id, tel, email):
+    def add_member_fail(self, dict):
         """
         添加成员失败操作
         :return:返回错误提示列表
         """
+        self.driver.find_element(By.ID, "username").send_keys(dict['user_name'])
         self.driver.find_element(By.ID, "memberAdd_acctid").send_keys(dict['id'])
         self.driver.find_element(By.ID, "memberAdd_phone").send_keys(dict['tel'])
         self.driver.find_element(By.ID, "memberAdd_mail").send_keys(dict['email'])
