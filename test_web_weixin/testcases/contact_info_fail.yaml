@@ -18,7 +18,7 @@ datas:
   id: '010'
   tel: 15705186626
   email: 843377629@qq.com
-  expect_res: "该手机已被“小徐”占有"
+  expect_res: "该手机号已被“小徐”占有"
 - user_name: 小徐3
   id: '010'
   tel: 139222233334
@@ -27,7 +27,7 @@ datas:
 - user_name: 小徐3
   id: '010'
   tel: 13922224444
-  email: 11@qq.com
+  email: 11@qq
   expect_res: "请填写正确的邮箱地址"
 - user_name: 小徐3
   id: '010'

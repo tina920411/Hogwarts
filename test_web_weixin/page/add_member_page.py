@@ -55,6 +55,7 @@ class AddMember(BasePage):
         elif dict['invitation_method'].lower() == 'yes' and not invit_web.is_selected():
             invit_web.click()
         #点击保存按钮
+        sleep(2)
         self.driver.find_element(By.CSS_SELECTOR, ".js_btn_save").click()
         return ContactPage(self.driver)
 
@@ -69,6 +70,7 @@ class AddMember(BasePage):
         self.driver.find_element(By.ID, "memberAdd_acctid").send_keys(dict['id'])
         self.driver.find_element(By.ID, "memberAdd_phone").send_keys(dict['tel'])
         self.driver.find_element(By.ID, "memberAdd_mail").send_keys(dict['email'])
+        sleep(1)
         self.driver.find_element(By.CSS_SELECTOR, ".js_btn_save").click()
         res = self.driver.find_elements(By.CSS_SELECTOR, ".ww_inputWithTips_tips")
         error_list = [i.text for i in res]

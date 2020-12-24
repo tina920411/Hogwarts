@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from page.base_page import BasePage
+from time import sleep
 
 
 
@@ -32,6 +33,7 @@ class ContactPage(BasePage):
         """
         sleep(2)
         self.driver.find_element(By.ID, "menu_contacts").click()
+        sleep(1)
         member_list = self.driver.find_elements(By.CSS_SELECTOR, ".member_colRight_memberTable_td:nth-child(5)")
         member_list_res = [i.text for i in member_list]
         print(member_list_res)
