@@ -1,0 +1,13 @@
+datas:
+- user_name: 小徐
+  gender: 男
+  tel: 12111116666
+  invite_method: "off"
+- user_name: 小小徐
+  gender: 女
+  tel: 10111116666
+  invite_method: "off"
+
+ids:
+- "case001_success_male"
+- "case002_success_female"
