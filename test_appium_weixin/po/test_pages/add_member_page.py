@@ -6,14 +6,17 @@
 @File     :add_member_page.py
 -------------------------------
 """
+from time import sleep
+
 from appium.webdriver.common.mobileby import MobileBy
 
 from test_appium_weixin.po.test_pages.BaseFunctions import BasicFunction
 
 
+
 class AddMember(BasicFunction):
-    def add_member(self, dict_info):
-        from test_appium_weixin.po.test_pages.contact_page import ContactPage
+
+    def add_member(self, dict_info, method):
         self.find_and_click(MobileBy.XPATH, "//*[@text='手动输入添加']")
         self.find_and_send(MobileBy.XPATH, "//*[contains(@text, '姓名')]/..//*[@text='必填']", dict_info['user_name'])
         self.find_and_click(MobileBy.XPATH, "//*[contains(@text, '性别')]/..//*[@text='男']")
@@ -23,7 +26,11 @@ class AddMember(BasicFunction):
         if dict_info['invite_method'] =='off':
             self.find_and_click(MobileBy.XPATH, "//*[@text='保存后自动发送邀请通知']")
         self.find_and_click(MobileBy.XPATH, "//*[@text='保存']")
+        sleep(5)
 
-        return ContactPage(self.driver)
-        # #添加成功的toast
-        # result = self.find(MobileBy.XPATH, "//*[@class='android.widget.Toast']").text
+        if method == "via ContactManage":
+            from test_appium_weixin.po.test_pages.manage_contact import ManageContact
+            return ManageContact(self.driver)
+        elif method == "via AddressList":
+            from test_appium_weixin.po.test_pages.contact_page import ContactPage
+            return ContactPage(self.driver)

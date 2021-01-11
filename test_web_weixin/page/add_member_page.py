@@ -8,8 +8,8 @@ from time import sleep
 
 from selenium.webdriver.common.by import By
 
-from page.base_page import BasePage
-from page.contact_page import ContactPage
+from test_web_weixin.page.base_page import BasePage
+from test_web_weixin.page.contact_page import ContactPage
 
 
 class AddMember(BasePage):
@@ -79,7 +79,7 @@ class AddMember(BasePage):
 
     def goto_add_department(self):
         # 解决循环导入的问题
-        from page.add_department_page import AddDepartment
+        from test_web_weixin.page.add_department_page import AddDepartment
         """
         添加部门操作
         :return: 

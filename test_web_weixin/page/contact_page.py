@@ -8,22 +8,23 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-from page.base_page import BasePage
 from time import sleep
 
+from test_web_weixin.page.base_page import BasePage
 
 
 class ContactPage(BasePage):
 
     def goto_add_member(self):
         #解决循环导入的问题
-        from page.add_member_page import AddMember
+        from test_web_weixin.page.add_member_page import AddMember
         """
         点击添加成员按钮
         :return: 返回添加成员方法
         """
         WebDriverWait(self.driver, 9).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, ".ww_operationBar .js_add_member")))
         self.driver.find_element(By.CSS_SELECTOR,".ww_operationBar .js_add_member").click()
+
         return AddMember(self.driver)
 
     def get_member(self):
@@ -40,7 +41,7 @@ class ContactPage(BasePage):
         return member_list_res
 
     def goto_add_department(self):
-        from page.add_department_page import AddDepartment
+        from test_web_weixin.page.add_department_page import AddDepartment
         """
         添加部门操作
         :return: 

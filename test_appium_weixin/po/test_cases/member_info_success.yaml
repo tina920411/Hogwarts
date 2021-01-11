@@ -1,9 +1,9 @@
 datas:
-- user_name: 小徐
+- user_name: 小徐001
   gender: 男
   tel: 12111116666
   invite_method: "off"
-- user_name: 小小徐
+- user_name: 小小徐002
   gender: 女
   tel: 10111116666
   invite_method: "off"

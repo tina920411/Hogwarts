@@ -11,6 +11,7 @@ from appium.webdriver.common.mobileby import MobileBy
 from test_appium_weixin.po.test_pages.BaseFunctions import BasicFunction
 from test_appium_weixin.po.test_pages.add_member_page import AddMember
 from test_appium_weixin.po.test_pages.manage_contact import ManageContact
+from test_appium_weixin.po.test_pages.personal_info import Personal_Info_Page
 
 
 class ContactPage(BasicFunction):
@@ -37,6 +38,20 @@ class ContactPage(BasicFunction):
         """
         self.find_and_click(MobileBy.XPATH, "//*[@resource-id = 'com.tencent.wework:id/gup']")
         return ManageContact(self.driver)
+
+    def goto_personal_info_via_ContactPage(self, dict_info):
+        self.swipe_and_click(MobileBy.XPATH, f"//*[@text='{dict_info['user_name']}']")
+        return Personal_Info_Page(self.driver)
+
+    def member_infoList_viaAdressList(self, dict_info):
+        """
+        用于delete成员后， check 成员是否在列表中
+        :param dict_info:
+        :return:
+        """
+        self.driver.implicitly_wait(1)
+        return self.driver.page_source
+
 
     def go_back_member_list(self, dict_info):
         """

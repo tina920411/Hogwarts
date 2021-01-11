@@ -6,9 +6,9 @@
 #-------------------------------
 from selenium.webdriver.common.by import By
 
-from page.add_member_page import AddMember
-from page.base_page import BasePage
-from page.contact_page import ContactPage
+from test_web_weixin.page.add_member_page import AddMember
+from test_web_weixin.page.base_page import BasePage
+from test_web_weixin.page.contact_page import ContactPage
 
 
 class MainPage(BasePage):

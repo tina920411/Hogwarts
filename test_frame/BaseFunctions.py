@@ -11,23 +11,30 @@ from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from test_frame.black_handle import find_black_wrapper, click_black_wrapper
 
-class BasicFunction():
+
+class BasicFunction:
     """
     这个类主要功能：定义各种操作页面函数，定义返回主页面函数，以及定义全部case结束后driver quit函数
     """
     def __init__(self, driver: WebDriver = None):
         self.driver = driver
+        self.blackList = [
+            (MobileBy.XPATH, '//*[@resource-id="com.xueqiu.android:id/ib_close"]'),
+            (MobileBy.XPATH, '//*[@resource-id="com.xueqiu.android:id/tv_agree"]'),
+            (MobileBy.XPATH, '//*[@resource-id="com.xueqiu.android:id/tv_left" and @text="下次再说"]')]
 
+    @find_black_wrapper
     def find(self, by, location):
         return self.driver.find_element(by, location)
 
     def finds(self, by, location):
         return self.driver.find_elements(by, location)
 
-
+    @click_black_wrapper
     def find_and_click(self, by, location):
-        self.find(by, location).click()
+        self.driver.find_element(by, location).click()
 
     def find_and_send(self, by, location, text):
         self.find(by, location).send_keys(text)

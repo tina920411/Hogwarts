@@ -4,7 +4,7 @@
 # @Author: tina
 # @File: add_department_page.py
 #-------------------------------
-from page.base_page import BasePage
+from test_web_weixin.page.base_page import BasePage
 from selenium.webdriver.common.by import By
 from time import sleep
 from selenium.webdriver.support.ui import Select
@@ -14,7 +14,7 @@ class AddDepartment(BasePage):
 
 
     def add_department(self):
-        from page.contact_page import ContactPage
+        from test_web_weixin.page.contact_page import ContactPage
         """
         从添加成员入口处添加部门
         :return: 返回部门列表
@@ -32,7 +32,7 @@ class AddDepartment(BasePage):
 
     def goto_add_member(self):
         #解决循环导入的问题
-        from page.add_member_page import AddMember
+        from test_web_weixin.page.add_member_page import AddMember
         """
         添加成员操作
         :return: 返回添加成员方法
