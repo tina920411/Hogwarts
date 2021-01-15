@@ -1,0 +1,10 @@
+marketSearch:
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/search_input_text"]'
+    action: send
+    content: $select_SelfStock_StockCode
+    capture_picture: "no"
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/code" and @text="$select_SelfStock_StockCode"]'
+    action: find
+    capture_picture: "no"

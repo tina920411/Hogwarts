@@ -1,0 +1,36 @@
+deleteStock:
+  # 如果flag为true, 则根据股票代码删除想要删除的自选股
+  - flag: "true"
+    by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/stockCode" and @text="$deleteStock_StockCode"]/../../..//*[@resource-id="com.xueqiu.android:id/check"]'
+    action: find_and_click
+    capture_picture: "no"
+  # 如果flag为false, 则根据股票名字删除想要删除的自选股
+  - flag: "false"
+    by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/stockCode" and @text="$deleteStock_StockName"]/../../..//*[@resource-id="com.xueqiu.android:id/check"]'
+    action: find_and_click
+    capture_picture: "no"
+  # 点击“删除自选”
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/cancel_follow"]'
+    action: find_and_click
+    capture_picture: "no"
+  - wait_element:
+      by: xpath
+      locator: '//*[@resource-id="com.xueqiu.android:id/tv_title"]'
+      capture_picture: "yes"
+  # 点击删除后会弹出是否确认删除自选股的弹框，点击确定
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/tv_right" and @text="确定"]'
+    action: find_and_click
+    capture_picture: "no"
+  - wait_element:
+      by: xpath
+      locator: '//*[@resource-id="com.xueqiu.android:id/action_close"]'
+      capture_picture: "no"
+  # 点击“完成”
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/action_close"]'
+    action: find_and_click
+    capture_picture: "no"

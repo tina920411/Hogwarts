@@ -1,0 +1,25 @@
+stocktList:  #函数名字
+  - flag: "true"
+    keyword_steps:
+       by: xpath
+       locator: '//*[@resource-id="com.xueqiu.android:id/portfolio_stockCode"]'
+       action: finds
+       return_list: []
+       capture_picture: "yes"
+  - flag: "false"
+    keyword_steps:
+       by: xpath
+       locator: '//*[@resource-id="com.xueqiu.android:id/portfolio_stockName"]'
+       action: finds
+       return_list: []
+       capture_picture: "yes"
+goto_manageStock:  #函数名字
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/edit_group"]'
+    action: find_and_click
+    capture_picture: "no"
+goto_marketSearch: #函数名字
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/action_search"]'
+    action: find_and_click
+    capture_picture: "no"

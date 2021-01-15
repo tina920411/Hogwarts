@@ -1,0 +1,31 @@
+search_handle:
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/search_input_text"]'
+    action: send
+    content: $search_handle_StockCode
+    capture_picture: "yes"
+select_SelfStock:
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/search_input_text"]'
+    action: send
+    content: $select_SelfStock_StockName
+    sleep: 2
+    capture_picture: "no"
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/code" and @text= "$select_SelfStock_StockCode"]'
+    action: find_and_click
+    capture_picture: "no"
+  - wait_element:
+      by: xpath
+      locator: '//*[@text="加自选"]'
+      capture_picture: "yes"
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/stockCode" and @text="$select_SelfStock_StockCode"]/../../..//*[@resource-id="com.xueqiu.android:id/follow_btn" and @text="加自选"]'
+    action: find_and_click
+    capture_picture: "no"
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/action_close" and @text="取消"]'
+    action: find_and_click
+    capture_picture: "no"
+
+

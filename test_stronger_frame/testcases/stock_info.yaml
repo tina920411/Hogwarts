@@ -1,0 +1,14 @@
+datas:
+  -
+    - BABA
+    - alibaba
+  -
+    - JD
+    - jingdong
+  -
+    - BIDU
+    - 百度
+ids:
+  - 阿里自选股
+  - 京东自选股
+  - 百度自选股

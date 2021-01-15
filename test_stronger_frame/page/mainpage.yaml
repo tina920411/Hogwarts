@@ -1,0 +1,10 @@
+goto_market:
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]'
+    action: find_and_click
+    capture_picture: "no"
+goto_search:
+  - by: xpath
+    locator: '//*[@resource-id="com.xueqiu.android:id/home_search"]'
+    action: find_and_click
+    capture_picture: "no"
