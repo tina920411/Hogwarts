@@ -1,0 +1,16 @@
+url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+req_info:
+  access_token: $token
+  data:
+    userid: "zhangsan"
+    name: "tangyuan"
+    gender: '2'
+    mobile: "15700001111"
+    email: "843377626@qq.com"
+    to_invite: False
+    position: "common"
+    dutity: "软件工程师"
+    department: [1]
+
+
+

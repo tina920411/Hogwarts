@@ -1,0 +1,23 @@
+url: "https://qyapi.weixin.qq.com/cgi-bin/user/update"
+req_info:
+  access_token: $token
+  data:
+    userid: "zhangsan"
+    name: 李四
+    department:
+      - 1
+    order:
+      - 10
+    position: 后台工程师
+    mobile: '13800000000'
+    gender: "1"
+    email: zhangsan@gzdev.com
+    is_leader_in_dept:
+      - 1
+    enable: 1
+    #avatar_mediaid: 2-G6nrLmr5EC3MNb_-zL1dDdzkd0p7cNliYu9V5w7o8K0
+    telephone: 020-123456
+    alias: jackzhang
+    address: 广州市海珠区新港中路
+    main_department: 1
+    to_invite: False

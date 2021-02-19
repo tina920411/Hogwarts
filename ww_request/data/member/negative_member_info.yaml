@@ -1,0 +1,441 @@
+negetive_info:
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40003
+    errmsg: "invalid userid"
+    req_info:
+      access_token: $token
+      data:
+        #userid 为空
+        userid: " "
+        name: "张三"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40058
+    errmsg: "userid exceed max length 64"
+    req_info:
+      access_token: $token
+      data:
+        # userid 的长度超过64
+        userid: "aaaaaaaabbbbbbbbccccccccddddddddaaaaaaaabbbbbbbbccccccccddddddddw"
+        name: "张三"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40003
+    errmsg: "invalid userid"
+    req_info:
+      access_token: $token
+      data:
+        # userid 包含了非法字符$
+        userid: "zhang$san"
+        name: "张三"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40003
+    errmsg: "invalid userid"
+    req_info:
+      access_token: $token
+      data:
+        # userid 包含了非法字符&
+        userid: "zhang&san"
+        name: "张三"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40003
+    errmsg: "invalid userid"
+    req_info:
+      access_token: $token
+      data:
+        # userid 包含了非法字符#
+        userid: "zhang#san"
+        name: "张三"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40003
+    errmsg: "invalid userid"
+    req_info:
+      access_token: $token
+      data:
+        # userid 包含了非法字符%
+        userid: "zhang%san"
+        name: "张三"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40003
+    errmsg: "invalid userid"
+    req_info:
+      access_token: $token
+      data:
+        # userid 包含了非法字符*
+        userid: "zhang*san"
+        name: "张三"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40003
+    errmsg: "invalid userid"
+    req_info:
+      access_token: $token
+      data:
+        # userid 包含了非法字符!
+        userid: "zhang!san"
+        name: "张三"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 60112
+    errmsg: "invalid name"
+    req_info:
+      access_token: $token
+      data:
+        # name 为空
+        userid: "zhangsan"
+        name:
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40058
+    errmsg: "name exceed max utf8 words 64"
+    req_info:
+      access_token: $token
+      data:
+        # name 超过限定64字符长度
+        userid: "zhangsan"
+        name: "aaaaaaaabbbbbbbbccccccccddddddddaaaaaaaabbbbbbbbccccccccddddddddw"
+        alias: "jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40058
+    errmsg: "alias exceed max utf8 words 32"
+    req_info:
+      access_token: $token
+      data:
+        # alias 超过限定32字符长度
+        userid: "zhangsan"
+        name: "张三"
+        alias: "aaaaaaaabbbbbbbbccccccccddddddddw"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40058
+    errmsg: "mobile exceed min length 5"
+    req_info:
+      access_token: $token
+      data:
+        # mobile 和 Email 同时为空
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: " "
+        email: " "
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 60104
+    errmsg: "mobile existed:"
+    req_info:
+      access_token: $token
+      data:
+        # mobile与之前重复
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15720618780"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 60103
+    errmsg: "invalid mobile"
+    req_info:
+      access_token: $token
+      data:
+        # mobile类型不正确
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "abcasdfqwer"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 60103
+    errmsg: "invalid mobile"
+    req_info:
+      access_token: $token
+      data:
+        # mobile长度不正确
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "1570000"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 60106
+    errmsg: "email existed"
+    req_info:
+      access_token: $token
+      data:
+        # email与之前重复
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "1178911845@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 60105
+    errmsg: "invalid email"
+    req_info:
+      access_token: $token
+      data:
+       # email格式不正确
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "abcd@qq"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40058
+    errmsg: "email exceed min length 6"
+    req_info:
+      access_token: $token
+      data:
+        # email长度6~64个字节，negative长度小于6
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "d@q.c"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40058
+    errmsg: "email exceed max length 64"
+    req_info:
+      access_token: $token
+      data:
+        # email长度6~64个字节，negative长度大于64
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "aaaaaaaabbbbbbbbccccccccddddddddaaaaaaaabbbbbbbbccccccccddddddddw@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3, 3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40066
+    errmsg: "invalid party list"
+    req_info:
+      access_token: $token
+      data:
+        # department id 不存在时
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [3]
+        order: [3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 40058
+    errmsg: "invalid order list"
+    req_info:
+      access_token: $token
+      data:
+        # order: 属于两个department, 但是order与department个数不一样
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3,3,3]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 60132
+    errmsg: "leader dept size not match"
+    req_info:
+      access_token: $token
+      data:
+        # is_leader_in_dept: 当department为2个时，is_leader_in_dept[0,1,0]
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3]
+        is_leader_in_dept: [0,1,0]
+  - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
+    errcode: 60132
+    errmsg: "leader dept size not match"
+    req_info:
+      access_token: $token
+      data:
+        # is_leader_in_dept: 当department为2个时，is_leader_in_dept[0]
+        userid: "zhangsan"
+        name: "张三"
+        alias: "Jacky"
+        gender: '1'
+        mobile: "15700001111"
+        email: "112233445@qq.com"
+        to_invite: False
+        position: "common"
+        dutity: "软件工程师"
+        department: [1, 2]
+        order: [3]
+        is_leader_in_dept: [0]
+ids:
+  - "userid 为空"
+  - "userid 的长度超过64"
+  - "userid 包含了非法字符$"
+  - "userid 包含了非法字符&"
+  - "userid 包含了非法字符#"
+  - "userid 包含了非法字符%"
+  - "userid 包含了非法字符*"
+  - "userid 包含了非法字符!"
+  - "name 为空"
+  - "name 超过限定64字符长度"
+  - "alias 超过限定32字符长度"
+  - "mobile 和 Email 同时为空"
+  - "mobile与之前重复"
+  - "mobile类型不正确"
+  - "mobile长度不正确"
+  - "email与之前重复"
+  - "email格式不正确"
+  - "email长度6~64个字节，negative长度小于6"
+  - "email长度6~64个字节，negative长度大于64"
+  - "department id 不存在时"
+  - "order: 属于两个department, 但是order只有一个"
+  - "is_leader_in_dept: 当department为2个时，is_leader_in_dept[0,1,0]"
+  - "is_leader_in_dept: 当department为2个时，is_leader_in_dept[0]"
