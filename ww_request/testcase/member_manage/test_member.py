@@ -6,7 +6,7 @@
 @File     :test_member.py
 -------------------------------
 """
-from time import sleep
+import os
 
 import pytest
 import requests
@@ -18,6 +18,7 @@ from ww_request.api.MemberApi import MemberApi
 
 ###定义一个全局变量api, 使得下面所有的测试用例或者其他函数或方法都可以调用
 api = MemberApi()
+yaml_file_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def setup_module():
     print("测试开始...")
@@ -36,8 +37,8 @@ class TestMember:
         """
         user_id = "HuangTingTing"
 
-        member_info = api.read_token_from_yaml(r"G:\project\Hogwarts\ww_request\data\member\get_member.yaml",
-                                               check_token_expire, user_id=user_id)
+        member_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\member\get_member.yaml",
+                                               check_token_expire, id=user_id)
 
         r = api.check_member_api(member_info["url"], member_info["params"])
         print(r)
@@ -53,7 +54,7 @@ class TestMember:
         避免用例之间的依赖关系
         :param check_token_expire: it is a fixture function in conftest.py
         """
-        member_info = api.read_token_from_yaml(r"G:\project\Hogwarts\ww_request\data\member\post_member.yaml",
+        member_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\member\post_member.yaml",
                                                check_token_expire)
         try:
             r = api.create_member_api(member_info["url"], member_info["req_info"])
@@ -65,8 +66,8 @@ class TestMember:
         finally:
             ###对上面create的动作进行清理，以免影响后面的测试用例
             delete_member_info = api.read_token_from_yaml(
-                r"G:\project\Hogwarts\ww_request\data\member\delete_member.yaml",
-                check_token_expire, user_id=member_info["req_info"]["data"]["userid"])
+                fr"{yaml_file_path}\data\member\delete_member.yaml",
+                check_token_expire, id=member_info["req_info"]["data"]["userid"])
 
             r = api.delete_member_api(delete_member_info["url"], delete_member_info["params"])
 
@@ -82,7 +83,7 @@ class TestMember:
         避免用例之间的依赖关系
         :param check_token_expire: it is a fixture function in conftest.py
         """
-        member_info = api.read_token_from_yaml(r"G:\project\Hogwarts\ww_request\data\member\post_member.yaml",
+        member_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\member\post_member.yaml",
                                                check_token_expire)
         try:
 
@@ -96,8 +97,8 @@ class TestMember:
         finally:
 
             delete_member_info = api.read_token_from_yaml(
-                r"G:\project\Hogwarts\ww_request\data\member\delete_member.yaml",
-                check_token_expire, user_id=member_info["req_info"]["data"]["userid"])
+                fr"{yaml_file_path}\data\member\delete_member.yaml",
+                check_token_expire, id=member_info["req_info"]["data"]["userid"])
 
             r = api.delete_member_api(delete_member_info["url"], delete_member_info["params"])
 
@@ -112,9 +113,9 @@ class TestMember:
         3、delete member
         :param check_token_expire: it is a fixture function in conftest.py
         """
-        create_member_info = api.read_token_from_yaml(r"G:\project\Hogwarts\ww_request\data\member\post_member.yaml",
+        create_member_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\member\post_member.yaml",
                                                       check_token_expire)
-        update_member_info = api.read_token_from_yaml(r"G:\project\Hogwarts\ww_request\data\member\update_member.yaml",
+        update_member_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\member\update_member.yaml",
                                                       check_token_expire)
         try:
             create_r = api.create_member_api(create_member_info["url"], create_member_info["req_info"])
@@ -129,8 +130,8 @@ class TestMember:
         finally:
 
             delete_member_info = api.read_token_from_yaml(
-                r"G:\project\Hogwarts\ww_request\data\member\delete_member.yaml",
-                check_token_expire, user_id=update_member_info["req_info"]["data"]["userid"])
+                fr"{yaml_file_path}\data\member\delete_member.yaml",
+                check_token_expire, id=update_member_info["req_info"]["data"]["userid"])
 
             r = api.delete_member_api(delete_member_info["url"], delete_member_info["params"])
             print(r)
@@ -144,7 +145,7 @@ def get_negative_info(path):
     :return:
     """
     #1. 取出token_param.yaml中的token值
-    with open(r"G:\project\Hogwarts\ww_request\testcase\token_param.yaml", "r", encoding="UTF-8") as f:
+    with open(fr"{yaml_file_path}\testcase\token_param.yaml", "r", encoding="UTF-8") as f:
         f_info = yaml.safe_load(f)
         token = f_info["token"]
     #2. 替换negative_member_info.yaml中的token变量，并读取yaml文件中的所有数据
@@ -158,8 +159,8 @@ class TestNegativeMember:
 
     @pytest.mark.parametrize(
         "allinfo",
-        get_negative_info(r"G:\project\Hogwarts\ww_request\data\member\negative_member_info.yaml")[0],
-        ids=get_negative_info(r"G:\project\Hogwarts\ww_request\data\member\negative_member_info.yaml")[1])
+        get_negative_info(fr"{yaml_file_path}\data\member\negative_member_info.yaml")[0],
+        ids=get_negative_info(fr"{yaml_file_path}\data\member\negative_member_info.yaml")[1])
     def test_negative_create_member(self, allinfo, check_token_expire):
 
         #1. 先使用negative info create member， 然后记录errcode 和 errmsg
@@ -175,16 +176,16 @@ class TestNegativeMember:
 
         #2. 先尝试读取刚刚create negative member的userid, 如果能够读取成功，则先删除，防止影响后面的测试用例
         try:
-            member_info = api.read_token_from_yaml(r"G:\project\Hogwarts\ww_request\data\member\get_member.yaml",
-                                                   check_token_expire, user_id=allinfo["req_info"]["data"]["userid"])
+            member_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\member\get_member.yaml",
+                                                   check_token_expire, id=allinfo["req_info"]["data"]["userid"])
 
             get_r = api.check_member_api(member_info["url"], member_info["params"])
             #print(get_r)
             if get_r['errmsg'] == 'ok':
 
                 delete_member_info = api.read_token_from_yaml(
-                    r"G:\project\Hogwarts\ww_request\data\member\delete_member.yaml",
-                    check_token_expire, user_id=allinfo["req_info"]["data"]["userid"])
+                    fr"{yaml_file_path}\data\member\delete_member.yaml",
+                    check_token_expire, id=allinfo["req_info"]["data"]["userid"])
 
                 delete_r = api.delete_member_api(delete_member_info["url"], delete_member_info["params"])
 
