@@ -28,7 +28,7 @@ def check_token_expire():
     api_check_token = requests.Session()
 
     now_time = int(time.time())
-    with open(fr"{yaml_file_path}/testcase/token_param.yaml", "r", encoding="UTF-8") as f:
+    with open(fr"{yaml_file_path}/ww_request/testcase/token_param.yaml", "r", encoding="UTF-8") as f:
         token_info = yaml.safe_load(f)
     #判断yaml文件中是否有token值，如果没有，则request.get，拿一下token，并写入到yaml中
     if token_info["token"] is None:
@@ -40,7 +40,7 @@ def check_token_expire():
         token_info["expire_time"] = 7200
         token_info["start_time"] = int(time.time())
         token_info["start_time"] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(timestrap))
-        with open(fr"{yaml_file_path}/testcase/token_param.yaml", "w+", encoding="UTF-8") as f:
+        with open(fr"{yaml_file_path}/ww_request/testcase/token_param.yaml", "w+", encoding="UTF-8") as f:
             yaml.safe_dump(token_info, f)
 
     #如果yaml文件中有token值， 判断获取的时长是否大于7200， 如果超时了，则重新获取token并写入， 否则跳过。
@@ -51,7 +51,7 @@ def check_token_expire():
             result_new = api_check_token.get(url=url, params=params).json()
             token_info["token"] = result_new['access_token']
             token_info["start_time"] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(time.time())))
-            with open(fr"{yaml_file_path}/testcase/token_param.yaml", "w+", encoding="UTF-8") as f:
+            with open(fr"{yaml_file_path}/ww_request/testcase/token_param.yaml", "w+", encoding="UTF-8") as f:
                 yaml.safe_dump(token_info, f)
         else:
             pass
