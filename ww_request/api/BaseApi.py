@@ -75,16 +75,15 @@ class AllBaseApi:
     def method_put(self):
         pass
 
-    def read_token_from_yaml(self, path, fixture_name, user_id: str = ""):
+    def read_token_from_yaml(self, path, fixture_name, id = ""):
         with open(f"{path}", "r", encoding="UTF-8") as f:
             # 利用Template技术替换yaml文件中的token变量
             tempTemplate = Template(f.read())
             # c类型为str类型， <class 'str'>
-            if user_id == "":
+            if id == "" or id == 0:
                 c = tempTemplate.safe_substitute({"token": fixture_name})
             else:
-                c = tempTemplate.safe_substitute({"token": fixture_name, "user_id": user_id})
-
+                c = tempTemplate.safe_substitute({"token": fixture_name, "id": id})
             # 将yaml文件数据，转换成python类型，比如 <class 'dict'>
             member_info = yaml.safe_load(c)
             print(member_info)

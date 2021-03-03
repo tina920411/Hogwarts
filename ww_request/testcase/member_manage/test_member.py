@@ -66,7 +66,7 @@ class TestMember:
         finally:
             ###对上面create的动作进行清理，以免影响后面的测试用例
             delete_member_info = api.read_token_from_yaml(
-                fr"{yaml_file_path}/data\member/delete_member.yaml",
+                fr"{yaml_file_path}/data/member/delete_member.yaml",
                 check_token_expire, id=member_info["req_info"]["data"]["userid"])
 
             r = api.delete_member_api(delete_member_info["url"], delete_member_info["params"])
