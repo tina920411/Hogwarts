@@ -1,0 +1,9 @@
+url: https://qyapi.weixin.qq.com/cgi-bin/department/create
+req_info:
+  access_token: $token
+  data:
+    name: "haha测试部"
+    name_en: "QAa"
+    parentid: 1
+    order: 2
+    id: 4
