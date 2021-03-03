@@ -26,8 +26,7 @@ class AllBaseApi:
 
     def get_token(self, path, fixture_name):
         member_info = self.read_token_from_yaml(path, fixture_name)
-        return member_info["params"]["params"]["access_token"]
-
+        return member_info["token"]
 
 
     def method_get(self, url, kwargs):

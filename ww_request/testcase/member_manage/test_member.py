@@ -7,6 +7,7 @@
 -------------------------------
 """
 import os
+from string import Template
 
 import pytest
 import requests
@@ -140,7 +141,7 @@ class TestMember:
 
 def get_negative_info(path):
     """
-    这个函数主要作用是读取negative member info，为后面集中runnegative类型的测试用例提供info
+    这个函数主要作用是读取negative member info，为后面集中run negative类型的测试用例提供info
     :param path:
     :return:
     """
@@ -148,6 +149,7 @@ def get_negative_info(path):
     with open(fr"{yaml_file_path}/testcase/token_param.yaml", "r", encoding="UTF-8") as f:
         f_info = yaml.safe_load(f)
         token = f_info["token"]
+        print(token)
     #2. 替换negative_member_info.yaml中的token变量，并读取yaml文件中的所有数据
     negative_create_member_info = api.read_token_from_yaml(path, token)
     negetive_info = negative_create_member_info["negetive_info"]
@@ -164,9 +166,14 @@ class TestNegativeMember:
     def test_negative_create_member(self, allinfo, check_token_expire):
 
         #1. 先使用negative info create member， 然后记录errcode 和 errmsg
+
+        local_token = api.get_token(fr"{yaml_file_path}/testcase/token_param.yaml", check_token_expire)
+
         print(allinfo)
         url = allinfo["url"]
+        allinfo["req_info"]["access_token"] = local_token
         data = allinfo["req_info"]
+        print(data)
         errcode = allinfo["errcode"]
         errmsg = allinfo["errmsg"]
         # 执行api create member
