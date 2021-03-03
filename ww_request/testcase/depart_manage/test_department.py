@@ -19,8 +19,8 @@ class TestDepartment:
 
     def test_get_department_list(self, check_token_expire, depart_id=0):
 
-        department_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\department\get_department.yaml",
-                                                   check_token_expire, id=depart_id)
+        department_info = api.read_token_from_yaml(fr"{yaml_file_path}/data/department/get_department.yaml",
+                                                  check_token_expire, id=depart_id)
         if depart_id == 0:
             del department_info["params"]["id"]
         print(department_info)
@@ -32,7 +32,7 @@ class TestDepartment:
             assert get_r['errcode'] == 0
 
     def test_create_department(self, check_token_expire):
-        depart_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\department\post_department.yaml",
+        depart_info = api.read_token_from_yaml(fr"{yaml_file_path}/data/department/post_department.yaml",
                                                check_token_expire)
         try:
             post_r = api.create_department_api(depart_info["url"], depart_info["req_info"])
@@ -40,7 +40,7 @@ class TestDepartment:
         except Exception as e:
             print(e)
         finally:
-            delete_department_info = api.read_token_from_yaml(fr"{yaml_file_path}\data\department\delete_department.yaml",
+            delete_department_info = api.read_token_from_yaml(fr"{yaml_file_path}/data/department/delete_department.yaml",
                                                               check_token_expire, id=depart_info["req_info"]["data"]["id"])
             delete_r = api.delete_department_api(delete_department_info["url"], delete_department_info["params"])
             print(delete_r)
