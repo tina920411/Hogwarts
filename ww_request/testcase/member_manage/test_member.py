@@ -54,7 +54,7 @@ class TestMember:
         避免用例之间的依赖关系
         :param check_token_expire: it is a fixture function in conftest.py
         """
-        member_info = api.read_token_from_yaml(fr"{yaml_file_path}/data\member/post_member.yaml",
+        member_info = api.read_token_from_yaml(fr"{yaml_file_path}/data/member/post_member.yaml",
                                                check_token_expire)
         try:
             r = api.create_member_api(member_info["url"], member_info["req_info"])
