@@ -1,4 +1,4 @@
 url: "https://qyapi.weixin.qq.com/cgi-bin/user/delete"
 params:
   access_token: $token
-  userid: $user_id
+  userid: $id

@@ -357,7 +357,7 @@ negetive_info:
         to_invite: False
         position: "common"
         dutity: "软件工程师"
-        department: [3]
+        department: [3333]
         order: [3]
   - url: "https://qyapi.weixin.qq.com/cgi-bin/user/create"
     errcode: 40058
